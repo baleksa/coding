@@ -1,0 +1,1 @@
+pandoc --standalone --template template.html doc.md -o doc.html

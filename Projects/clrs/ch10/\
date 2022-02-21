@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct lnode_t {
+  struct lnode_t *next;
+  int key;
+} lnode_t;
+
+lnode_t *make_lnode(int key) {
+  lnode_t *node = malloc(sizeof(lnode_t));
+  node->key = key;
+  node->next = NULL;
+  return node;
+}
+
+void insert_in_sorted_list(lnode_t **list, lnode_t *x) {
+  if (!list) {
+    return;
+  }
+  lnode_t *head = *list;
+  if (!head) {
+    *list = head;
+    return;
+  }
+  if (head->key >= x->key) {
+    x->next = head;
+    *list = x;
+    return;
+  }
+
+  while (head->next && head->next->key < x->key) {
+    head = head->next;
+  }
+  // if (!head->next) {
+  //   head->next = x;
+  //   return;
+  // }
+
+  x->next = head->next;
+  head->next = x;
+
+}
+
+void print_list(lnode_t *head, const char *msg)
+{
+  printf("%s:", msg);
+  for(; head; head = head->next) {
+    printf(" %d", head->key);
+  }
+  printf("\n");
+}
+
+void test_sorted_list() {
+  lnode_t *head = NULL;
+  insert_in_sorted_list(&head, make_lnode(0));
+  printf("%d\m", head->ke);
+  // print_list(head, "one element list");
+}
+
+int main(int argc, char *argv[]) { 
+  test_sorted_list();
+  return 0;
+}
