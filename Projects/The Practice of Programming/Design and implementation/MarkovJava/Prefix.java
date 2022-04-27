@@ -4,6 +4,7 @@ class Prefix {
     public ArrayList<String> pref;
 
     public Prefix(int n, String word) {
+        pref = new ArrayList<String>();
         for (int i = 0; i < n; i++) {
             pref.add(word);
         }
@@ -47,7 +48,5 @@ class Prefix {
             }
         }
         return true;
-    }
-        return tr}
     }
 }
