@@ -11,11 +11,11 @@ int csvgetline(FILE *in)
 	int nfield;
 	char *p, *q;
 
-	if (!fgets(buf, BUF_SIZE, in))
+	if (fgets(buf, BUF_SIZE, in) == NULL)
 		return -1;
 
 	nfield = 0;
-	for (q = buf; (p = strtok(q, ",\n\r")); q = NULL) {
+	for (q = buf; (p = strtok(q, ",\n\r")) != NULL; q = NULL) {
 		field[nfield++] = unquote(p);
 	}
 
