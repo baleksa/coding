@@ -2,6 +2,7 @@
 
 echo "Testing with file $1:"
 for i in 0 1 2 3; do
+        printf "  "
 	case "$i" in
 	0)
 		echo "GREEDY:"
