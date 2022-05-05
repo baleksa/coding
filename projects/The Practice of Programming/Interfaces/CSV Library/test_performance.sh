@@ -18,6 +18,6 @@ for tfile in ./data/csv/*; do
 			printf "LAZY_ONLY_N: "
 			;;
 		esac
-		/bin/time -f%e cat "$tfile" | ./test_multifield "$i" "0" 1>/dev/null
+		/bin/time -f%e cat "$tfile" | ./test_multifield "$i" "$1" 1>/dev/null
 	done
 done
